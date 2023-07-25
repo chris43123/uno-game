@@ -1,0 +1,31 @@
+FROM node:14.17 as builder
+
+RUN mkdir -p /uno
+
+WORKDIR /uno
+
+COPY . /uno
+
+RUN npm run ci:unoenty
+
+ENV PORT 80
+
+ENV NODE_ENV production
+
+EXPOSE 80 3667
+WORKDIR /uno/packages/unoenty
+RUN npm run start
+#CMD [ "npm", "run", "start" ]
+
+FROM nginx:1.21.0-alpine as production
+ENV NODE_ENV production
+# Copy built assets from `builder` image
+COPY --from=builder /uno/packages/unoenty/build /usr/share/nginx/html
+# Add your nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Expose port
+EXPOSE 80
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
+
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
