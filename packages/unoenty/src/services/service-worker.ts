@@ -14,44 +14,44 @@ export const register = (config: Config): void => {
 }
 
 const registerValidSW = (swUrl: string, config: Config): void => {
-	navigator.serviceWorker
-		.register(swUrl)
-		.then((registration) => {
-			registration.onupdatefound = () => {
-				const installingWorker = registration.installing
+	// navigator.serviceWorker
+	// 	.register(swUrl)
+	// 	.then((registration) => {
+	// 		registration.onupdatefound = () => {
+	// 			const installingWorker = registration.installing
 
-				if (installingWorker == null) {
-					return
-				}
+	// 			if (installingWorker == null) {
+	// 				return
+	// 			}
 
-				installingWorker.onstatechange = () => {
-					if (installingWorker.state === "installed") {
-						if (navigator.serviceWorker.controller) {
-							/**
-							 * At this point, the updated precached content has been fetched,
-							 * but the previous service worker will still serve the older
-							 * content until all client tabs are closed.
-							 */
-							if (config && config.onUpdate) {
-								config.onUpdate(registration)
-							}
-						} else {
-							/**
-							 * At this point, everything has been precached.
-							 * It's the perfect time to display a
-							 * "Content is cached for offline use." message.
-							 */
-							if (config && config.onSuccess) {
-								config.onSuccess(registration)
-							}
-						}
-					}
-				}
-			}
-		})
-		.catch((error) => {
-			console.error("Error during service worker registration:", error)
-		})
+	// 			installingWorker.onstatechange = () => {
+	// 				if (installingWorker.state === "installed") {
+	// 					if (navigator.serviceWorker.controller) {
+	// 						/**
+	// 						 * At this point, the updated precached content has been fetched,
+	// 						 * but the previous service worker will still serve the older
+	// 						 * content until all client tabs are closed.
+	// 						 */
+	// 						if (config && config.onUpdate) {
+	// 							config.onUpdate(registration)
+	// 						}
+	// 					} else {
+	// 						/**
+	// 						 * At this point, everything has been precached.
+	// 						 * It's the perfect time to display a
+	// 						 * "Content is cached for offline use." message.
+	// 						 */
+	// 						if (config && config.onSuccess) {
+	// 							config.onSuccess(registration)
+	// 						}
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 	})
+	// 	.catch((error) => {
+	// 		console.error("Error during service worker registration:", error)
+	// 	})
 }
 
 export const checkValidServiceWorker = (swUrl: string, config: Config): void => {

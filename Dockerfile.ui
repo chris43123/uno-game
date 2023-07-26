@@ -1,4 +1,4 @@
-#Use node image as build layer
+#Use nodejs image as build layer
 FROM node:14.17 as builder
 RUN mkdir -p /uno
 WORKDIR /uno
