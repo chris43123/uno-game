@@ -1,6 +1,6 @@
 const colors = {
 	palette: {
-		black1: "#BD7F37",
+		black1: "#252525",
 		black2: "#7F8084",
 		black3: "#D7D8DA",
 		black4: "#F3F3F3",
@@ -12,7 +12,7 @@ const colors = {
 		red1: "#D34141",
 	},
 	grayScale: {
-		1: "#BD7F37",
+		1: "#0000a6", // color real es #151515
 		2: "#2C2C2C",
 		3: "#3B3B3B",
 		4: "#4C4C4C",
