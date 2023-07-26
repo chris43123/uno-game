@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Publicando imagenes a docker hub'
                 sh 'sleep 10' //El comando real seria 'docker compose push'
-                sh 'Imagenes publicadas exitosamente!!!!'
+                echo 'Imagenes publicadas exitosamente!!!!'
             }
         }
         stage('Desplegar contenedores en el servidor') {
