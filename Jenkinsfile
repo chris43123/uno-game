@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Desplegar contenedores en el servidor') {
             steps {
-                echo 'docker compose up -d'
+                sh 'docker compose up -d'
             }
         }
     }
