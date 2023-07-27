@@ -5,7 +5,7 @@ pipeline {
         stage('Construir imagenes de docker') {
             steps {
                 echo 'Contruyendo imagenes.....'
-                sh 'docker compose build --no-cache '
+                sh 'docker compose build'
             }
         }
         stage('subir imagenes a docker hub') {
