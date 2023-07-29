@@ -24,7 +24,6 @@ pipeline {
     post {
         success {
             script {
-                // Call the shell script and pass the TELEGRAM_MESSAGE parameter
                 sh "/var/lib/jenkins/telegramMessage.sh"
             }
         }
