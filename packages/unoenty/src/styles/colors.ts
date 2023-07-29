@@ -12,7 +12,7 @@ const colors = {
 		red1: "#D34141",
 	},
 	grayScale: {
-		1: "#151515", // color real es #151515 // azul #0000a6
+		1: "#0000a6", // color real es #151515 // azul #0000a6
 		2: "#2C2C2C",
 		3: "#3B3B3B",
 		4: "#4C4C4C",
